@@ -1,0 +1,14 @@
+{% include 'menu.html' %}
+
+{% block title %}<h3>Игры</h3>{% endblock %}
+
+{% block menu %}{% endblock %}
+
+{% block pagename %}{% endblock %}
+{% block content %}
+
+           {% for game in Games %}
+            <p>{{ game | title }} | {{ game.description | title }}. Cтоимость: {{ game.cost | title }}</p>
+        <button> Купить </button>
+        {% endfor %}
+{% endblock %}
