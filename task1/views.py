@@ -95,3 +95,12 @@ def sign_up_by_html(request):
             info['error'] = f'Пользователь {name} уже существует'
             return HttpResponse(f"Ошибка, {info['error']}!")
     return render(request, 'registration_page.html', context=info)
+
+
+def paginations(request):
+    posts = Post.objects.all().order_by('-created_at')
+    paginator = Paginator(posts, 3)
+    page_number = request.GET.get('page')
+    page_obj = paginator.get_page(page_number)
+    return render(request, 'paginator.html', {'page_obj': page_obj})
+
