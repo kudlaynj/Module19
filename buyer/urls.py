@@ -28,4 +28,5 @@ urlpatterns = [
     path('menu/', menu),
     path('reg/', sign_up_by_django),
     path('registration/', sign_up_by_html),
+    path('pag/', paginations),
 ]
